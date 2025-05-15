@@ -12,21 +12,16 @@ print(img.shape) # (187, 269, 3)
 width = img.shape[1]
 height = img.shape[0]
 
-for i in range(height):
-    for j in range(width):
-        red_channel[i, j, 1] = 0
-        red_channel[i, j, 0] = 0
-
-
-for i in range(height):
-    for j in range(width):
-        green_channel[i, j, 2] = 0
-        green_channel[i, j, 0] = 0
-
-for i in range(height):
-    for j in range(width):
-        blue_channel[i, j, 2] = 0
-        blue_channel[i, j, 1] = 0
+for y in range(height):
+    for x in range(width):
+        red_channel[y, x, 1] = 0
+        red_channel[y, x, 0] = 0
+        
+        green_channel[y, x, 2] = 0
+        green_channel[y, x, 0] = 0
+        
+        blue_channel[y, x, 2] = 0
+        blue_channel[y, x, 1] = 0
 
 cv.imshow("red channel", red_channel)
 cv.imshow("green channel", green_channel)
