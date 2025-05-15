@@ -1,23 +1,17 @@
-import cv2 as cv 
+import cv2 as cv
+import numpy as np
+import matplotlib.pyplot as plt
 
 img_path = "Part-2/dog.jpg"
 img = cv.imread(img_path)
 
-img_to_gray = img.copy()
+b = img[:, :, 0].astype(float)
+g = img[:, :, 1].astype(float)
+r = img[:, :, 2].astype(float)
 
-width = img.shape[1]
-height = img.shape[0]
+gray_img = (0.114 * b + 0.587 * g + 0.299 * r).astype(np.uint8)
 
-for i in range(height):
-    for j in range(width):
-        r = img[i, j, 2]
-        g = img[i, j, 1]
-        b = img[i, j, 0]
-
-        gray = r * 0.299 + g * 0.587 + b * 0.114
-        img_to_gray[i, j, 2] = img_to_gray[i, j, 1] = img_to_gray[i, j, 0] = gray
-
-
-cv.imshow("color image", img)
-cv.imshow("gray image", img_to_gray)
+cv.imshow("Original Image", img)
+cv.imshow("Grayscale", gray_img)
 cv.waitKey(0)
+cv.destroyAllWindows()
