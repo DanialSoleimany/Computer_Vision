@@ -14,7 +14,7 @@ for i in range(height):
         g = img[i, j, 1]
         b = img[i, j, 0]
 
-        gray = r * 0.299 + g * 0.587 + b * 0.144 
+        gray = r * 0.299 + g * 0.587 + b * 0.114
         img_to_gray[i, j, 2] = img_to_gray[i, j, 1] = img_to_gray[i, j, 0] = gray
 
 
